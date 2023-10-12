@@ -95,6 +95,19 @@
           "update": {"x": {"field": "x"}, "y": {"field": "y"}, "fontSize": {"signal": "scale('size', datum['Sum of subscribers'])"}}
         }
       }
+    ], "legends": [
+      {
+        "fill": "color",
+        "title": "Subscribers",
+        "orient": "top-left",
+        "labelFontSize": 14,
+        "symbolSize": 150,
+        "titleFontSize": 15,
+        "encode": {
+          "symbols": {"enter": {"fillOpacity": {"value": 4}}},
+          "labels": {"update": {"text": {"field": "value"}}}
+        }
+      }
     ]
   }
   

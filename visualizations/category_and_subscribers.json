@@ -38,8 +38,11 @@
         "type": "ordinal",
         "domain": {"data": "table", "field": "subscribers_category"},
         "range": ["#ffcdb2", "#6d6875", "#e5989b"]
+        
       }
     ],
+  
+  
     "marks": [
       {
         "name": "nodes",
@@ -55,7 +58,8 @@
             "size": {"signal": "scale('size', datum['Sum of subscribers'])"},
             "stroke": {"value": "white"},
             "strokeWidth": {"value": 1},
-            "tooltip": {"signal": "datum"}
+            "tooltip": {"signal": "{'Category': datum['Row Labels'], 'Subscribers': datum.subscribers_category}"}
+  
           }
         },
         "transform": [
@@ -83,7 +87,7 @@
           "enter": {
             "align": {"value": "center"},
             "baseline": {"value": "middle"},
-            "fontSize": {"value": 1},
+            "fontSize": {"value": 12},
             "fontWeight": {"value": "bold"},
             "fill": {"value": "white"},
             "text": {"field": "datum['Row Labels']"}

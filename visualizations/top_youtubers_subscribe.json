@@ -1,0 +1,28 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Top 10 YouTubers by Subscribers",
+    "background": "e9ecef",
+    "data": {
+      "url": "https://raw.githubusercontent.com/bharagvrathod/fit3179_asgn2/master/data/top_10_youtubers.csv",
+      "format": {"type": "csv"}
+    },
+    "mark": {"type": "bar", "fill": "#bcb8b1"}, 
+    "encoding": {
+      "y": {
+        "field": "Youtuber",
+        "type": "nominal",
+        "axis": {"title": "YouTuber"}
+      },
+      "x": {
+        "field": "subscribers",
+        "type": "quantitative",
+        "axis": {"title": "Subscribers"},
+        "scale": {"domain": [0, 250000000]}
+      }
+    },
+    "config": {
+      "view": {"stroke": "transparent"}
+      
+    }
+  }
+  

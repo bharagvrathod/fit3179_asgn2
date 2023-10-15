@@ -1,7 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
-    "height": 700,
+    "width": 600,
+    "height": 600,
+    "background": "#e9ecef",
     "projection": {
       "type": "orthographic",
       "rotate": {"expr": "[rotate0, rotate1, 0]"}
@@ -62,7 +63,10 @@
               "range": [0, {"expr": "pow(MarkSize, 3)"}]
             }
           },
-          "tooltip": [{"field": "Count of Country"}]
+          "tooltip": [
+      {"field": "Row Labels", "title": "Country"},
+      {"field": "Count of Country", "title": "Number of Youtubers"}
+    ]
         }
       }
     ]

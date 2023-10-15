@@ -1,0 +1,69 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 700,
+    "projection": {
+      "type": "orthographic",
+      "rotate": {"expr": "[rotate0, rotate1, 0]"}
+    },
+    "params": [
+      {
+        "name": "rotate0",
+        "value": 0,
+        "bind": {"input": "range", "min": -90, "max": 90, "step": 1}
+      },
+      {
+        "name": "rotate1",
+        "value": 0,
+        "bind": {"input": "range", "min": -90, "max": 90, "step": 1}
+      },
+      {
+        "name": "MarkSize",
+        "value": 6,
+        "bind": {"input": "range", "min": 0, "max": 12, "step": 0.1}
+      }
+    ],
+    "layer": [
+      {
+        "data": {"sphere": true},
+        "mark": {"type": "geoshape", "fill": "#dce0d9"}
+      },
+      {
+        "data": {
+          "name": "world",
+          "url": "data/world-110m.json",
+          "format": {"type": "topojson", "feature": "countries"}
+        },
+        "mark": {"type": "geoshape", "fill": "#ead7c3", "stroke": "black"}
+      },
+      {
+        "data": {
+          "name": "earthquakes",
+          "url": "https://raw.githubusercontent.com/bharagvrathod/fit3179_asgn2/master/data/geomap.csv",
+          "format": {"type": "csv", "parse": {"Count of Country": "number"}}
+        },
+        "transform": [
+          
+          {
+            "filter": "(rotate0 * -1) - 90 < datum.Longitude && datum.Longitude < (rotate0 * -1) + 90 && (rotate1 * -1) - 90 < datum.Latitude && datum.Latitude < (rotate1 * -1) + 90"
+          }
+        ],
+        "mark": {"type": "circle", "color": "#590d22"},
+        "encoding": {
+          "longitude": {"field": "Longitude", "type": "quantitative"},
+          "latitude": {"field": "Latitude", "type": "quantitative"},
+          "size": {
+            "legend": null,
+            "field": "Count of Country",
+            "type": "quantitative",
+            "scale": {
+              "type": "sqrt",
+              "domain": [0, 100],
+              "range": [0, {"expr": "pow(MarkSize, 3)"}]
+            }
+          },
+          "tooltip": [{"field": "Count of Country"}]
+        }
+      }
+    ]
+  }

@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A dual axis chart with specific data",
+    "width": 400,
+    "height": 300,
+    "data": {
+      "url": "https://raw.githubusercontent.com/bharagvrathod/fit3179_asgn2/master/data/layered_plot_dual_axis.csv",
+      "format": {"type": "csv", "parse": {"Max of subscribers": "number", "Min of subscribers": "number",
+          "Max of highest_yearly_earnings": "number",
+          "Max of lowest_yearly_earnings": "number"}}
+    },
+    "encoding": {
+      "x": {
+        "field": "Row Labels",
+        "type": "ordinal",
+        "title": "Year"
+      }
+    },
+    "layer": [
+      {
+        "mark": {"opacity": 0.5, "type": "area", "color": "#85C5A6"},
+        "encoding": {
+          "y": {
+            "field": "Max of subscribers",
+            "type": "quantitative",
+            "title": "Max Vs Min Subscribers",
+            "axis": {"titleColor": "#85C5A6"}
+          },
+          "y2": {
+            "field": "Min of subscribers",
+            "type": "quantitative"
+          }
+        }
+      },
+      {
+        "mark": {"stroke": "#85A9C5", "type": "area", "interpolate": "monotone", "opacity": 0.3},
+        "encoding": {
+          "y": {
+            "field": "Max of highest_yearly_earnings",
+            "type": "quantitative",
+            "title": "Max of Highest Vs Lowest Yearly Earnings",
+            "axis": {"titleColor": "#a6bfd3"}
+          },
+          "y2": {
+            "field": "Max of lowest_yearly_earnings",
+            "type": "quantitative"
+          }
+        }
+      }
+    ],
+    "resolve": {"scale": {"y": "independent"}}
+  }
+  

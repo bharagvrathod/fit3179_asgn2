@@ -32,7 +32,7 @@
       {
         "data": {
           "name": "world",
-          "url": "data/world-110m.json",
+          "url": "https://raw.githubusercontent.com/bharagvrathod/fit3179_asgn2/master/data/world-110m.json",
           "format": {"type": "topojson", "feature": "countries"}
         },
         "mark": {"type": "geoshape", "fill": "#ead7c3", "stroke": "#752a2acc"}

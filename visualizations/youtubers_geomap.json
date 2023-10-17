@@ -35,7 +35,7 @@
           "url": "data/world-110m.json",
           "format": {"type": "topojson", "feature": "countries"}
         },
-        "mark": {"type": "geoshape", "fill": "#ead7c3", "stroke": "black"}
+        "mark": {"type": "geoshape", "fill": "#ead7c3", "stroke": "#03071e"}
       },
       {
         "data": {

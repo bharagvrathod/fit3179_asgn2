@@ -8,8 +8,7 @@
   
     "signals": [
       {
-        "name": "rangeStep", "value": 20,
-        "bind": {"input": "range", "min": 5, "max": 50, "step": 1}
+        "name": "rangeStep", "value": 25
       },
       {
         "name": "innerPadding", "value": 0.1,

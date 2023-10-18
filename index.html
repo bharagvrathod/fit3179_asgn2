@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>YouTube Analytics</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Add custom CSS -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      /* Set a linear gradient background with multiple colors */
+      background-image: linear-gradient(#daddd8, #ecebe4, #eef0f2, #fafaff);
+      background-size: 100% 100%;
+      background-attachment: fixed;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .page {
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 70px;
+    }
+
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 24px;
+    }
+
+    p {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+    }
+
+    .description {
+      font-family: Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      max-width: 500px;
+      padding: 20px;
+      margin: 0 auto; /* Center the descriptions */
+    }
+
+    .description-left {
+      text-align: left; /* Align the text to the left */
+    }
+
+    .vis-container {
+      padding: 20px; /* Add padding to separate visualizations */
+      text-align: center; /* Center the visualizations */
+      
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>YouTube Analytics</h1>
+        <p>YouTube is a massive online video platform with more than 2 billion active users. 52% of internet users access YouTube at least once a month. Over 122 million people visit YouTube every day via its Website and Apps. YouTube Shorts Has 1.5 Billion Monthly Active Users</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Vega-Lite Visualizations with Descriptions -->
+    <div class="pure-g">
+      <!-- Visualization 1 -->
+      <div class="pure-u-1-2 vis-container">
+        <div id="vis1"></div>
+      </div>
+      <div class="pure-u-1-2 description description-left">
+        <h2>Channel Category and Subscribers</h2>
+        <p>Packed bubble chart depicting category-wise subscribers distribution. The Music category dominates with Entertainment being the second most subscribed category, just falling short of 1 billion subscribers. The two combined make more subscribers than all the other categories in the above 1 billion subscribers category.</p>
+      </div>
+
+      <!-- Visualization 2 -->
+      <div class="pure-u-1-2 vis-container">
+        <div id="vis2"></div>
+      </div>
+      <div class="pure-u-1-2 description description-left">
+        <h2>Country wise YouTuber Distribution</h2>
+        <p>A 3D map indicating country-wise YouTubers distribution depicting the number of YouTubers that originated from a specific country using the size of the channel over nodes. India, US, and Brazil make the top 3.</p>
+      </div>
+
+      <!-- Visualization 3 -->
+      <div class="pure-u-1-2 vis-container">
+        <div id="vis3"></div>
+      </div>
+      <div class="pure-u-1-2 description description-left">
+        <h2>Subscribers and Annual Earning</h2>
+        <p>It's a layered plot with dual axes, depicting interesting insights about YouTubers originating over different years, showing their max vs. min number of subscribers alongside the max of the highest yearly earnings vs. lowest yearly earnings among them. We can see that YouTubers who originated in 2016 have significantly more with quite higher max salary with lower max subscriber values compared to the rest of the years, while for YouTubers who originated in 2018 earn significantly less than the number of subscribers.</p>
+      </div>
+
+      <!-- Visualization 4 -->
+      <div class="pure-u-1-2 vis-container">
+        <div id="vis4"></div>
+      </div>
+      <div class="pure-u-1-2 description description-left">
+        <h2>Top 50 YouTubers</h2>
+        <p>We can see that the Music category dominates with the most number of subscribers compared to the rest. The Entertainment category, with fewer YouTubers, also dominates the rest except for Music, which indicates that entertainment content is the most growing content type on YouTube.</p>
+      </div>
+    </div>
+    <!-- End Vega-Lite Visualizations -->
+
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualization is created by <a href="https://github.com/bharagvrathod/fit3179_asgn2" target="_blank">Fred Villin</a> Student id: 32151446.</p>
+      </div>
+    </div>
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specVis1 = "./category_and_subscribers.json";
+    var specVis2 = "./youtubers_geomap.json";
+    var specVis3 = "./layer_graph_subscribers_earnings.json";
+    var specVis4 = "./bar_chart_top_50_youtubers.json";
+
+    vegaEmbed('#vis1', specVis1, { "actions": false });
+    vegaEmbed('#vis2', specVis2, { "actions": false }).catch(console.error);
+    vegaEmbed('#vis3', specVis3, { "actions": false }).catch(console.error);
+    vegaEmbed('#vis4', specVis4, { "actions": false }).catch(console.error);
+  </script>
+</body>
+
+</html>

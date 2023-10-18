@@ -37,7 +37,7 @@
         "name": "color",
         "type": "ordinal",
         "domain": {"data": "table", "field": "subscribers_category"},
-        "range": ["#ffcdb2", "#6d6875", "#e5989b"]
+        "range": ["#EED6D3", "#B95C50", "#DE847B"]
         
       }
     ],
@@ -58,7 +58,8 @@
             "size": {"signal": "scale('size', datum['Sum of subscribers'])"},
             "stroke": {"value": "white"},
             "strokeWidth": {"value": 1},
-            "tooltip": {"signal": "{'Category': datum['Row Labels'], 'Subscribers': datum.subscribers_category}"}
+            "tooltip": {"signal": "{'Category': datum['Row Labels'], 'Subscribers': datum.subscribers_category, 'Number of Subscribers': datum['Sum of subscribers']}"}
+
   
           }
         },
@@ -89,7 +90,7 @@
             "baseline": {"value": "middle"},
             "fontSize": {"value": 12},
             "fontWeight": {"value": "bold"},
-            "fill": {"value": "white"},
+            "fill": {"value": "black"},
             "text": {"field": "datum['Row Labels']"}
           },
           "update": {"x": {"field": "x"}, "y": {"field": "y"}, "fontSize": {"signal": "scale('size', datum['Sum of subscribers'])"}}

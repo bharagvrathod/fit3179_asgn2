@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "width": 1000,
-    "height": 1000,
-    "background": "e9ecef",
+    "width": 800,
+    "height": 800,
+    "background": "#e9ecef",
     "padding": {"left": 5, "right": 5, "top": 20, "bottom": 0},
     "autosize": "none",
     "signals": [
@@ -31,7 +31,7 @@
       {
         "name": "size",
         "domain": {"data": "table", "field": "Sum of subscribers"},
-        "range": [9000, 80000]  
+        "range": [2000, 50000]  
       },
       {
         "name": "color",

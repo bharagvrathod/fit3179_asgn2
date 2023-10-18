@@ -135,10 +135,11 @@
   </div> <!-- end page -->
 
   <script type="text/javascript">
-    var specVis1 = "./visualizations/category_and_subscribers.json";
-    var specVis2 = "./visualizations/youtubers_geomap.json";
-    var specVis3 = "./visualizations/layer_graph_subscribers_earnings.json";
-    var specVis4 = "./visualizations/bar_chart_top_50_youtubers.json";
+    var specVis1 = "https://raw.githubusercontent.com/bharagvrathod/fit3179_asgn2/master/visualizations/category_and_subscribers.json";
+    var specVis2 = "https://raw.githubusercontent.com/bharagvrathod/fit3179_asgn2/master/visualizations/youtubers_geomap.json";
+    var specVis3 = "https://raw.githubusercontent.com/bharagvrathod/fit3179_asgn2/master/visualizations/layer_graph_subscribers_earnings.json";
+    var specVis4 = "https://raw.githubusercontent.com/bharagvrathod/fit3179_asgn2/master/visualizations/bar_chart_top_50_youtubers.json";
+  
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
     vegaEmbed('#vis2', specVis2, { "actions": false }).catch(console.error);
